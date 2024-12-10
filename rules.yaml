@@ -1,0 +1,16 @@
+scizor: 
+  - lizard
+  - paper
+paper: 
+  - rock
+  - spock
+rock: 
+  - lizard
+  - scizor
+lizard:
+  - paper  
+  - spock
+spock:
+  - rock
+  - scizor
+
