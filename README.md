@@ -6,9 +6,65 @@ Classic jokenpo game built with Go
 - go 1.23.4
 
 
-## How to run
+## Makefile
 
-## Load test result
+In the root has a Makefile with all available commands.You can run usin ```make <command>```.Like example below
+
+```
+make run
+```
+
+## Run aplication
+
+you can run using the command ```make run``` than the server will run on PORT 8084(define in .env file)
+
+To test the ```/match``` endpoint you can run the command below
+
+```
+curl --request POST \
+  --url http://0.0.0.0:8084/match \
+  --header 'Content-Type: application/json' \
+  --data '{
+  "player1": "lizard",
+  "player2": "scizor"
+}'
+```
+
+The available entries are:
+
+- paper
+- rock
+- scizor
+- spock
+- lizard
+
+If you need add more options you can update the ```rules.yaml```
+
+```yaml
+paper: 
+  - rock
+  - spock
+```
+
+in the example above, **paper** will win from **rock** and **spock** 
+
+
+## Load Test
+
+### run load test
+
+before run the load test please update ```loadtest/script.js```. with time duration and VUs 
+
+```javascript
+export const options = {
+  vus: 500 ,  // here change for desire number of virtual users(VU)
+  duration: '60s', // here the load test duration
+};
+
+
+```
+
+### Results
 
 For **500** VU
 ```
